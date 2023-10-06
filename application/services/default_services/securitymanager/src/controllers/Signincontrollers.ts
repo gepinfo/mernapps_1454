@@ -1,16 +1,10 @@
-import { Request, Response } from 'express';
+import { Request, Response, response } from 'express';
 import { Signinservice } from '../service/Signinservice';
-import { CustomLogger } from '../config/Logger';
-//#@facebookimport@#
-//#@githubimport@#
+import { CustomLogger } from '../config/Logger'
 
 let signinservice = new Signinservice;
 export class Signincontroller {
-    private callConstructor:string;
-    constructor() { 
-        this.callConstructor = "callConstructor";
-    }
-    
+
     public signup(req: Request, res: Response) {
         new CustomLogger().showLogger('info', 'Enter into Signincontrollers.ts: signup');
         signinservice.signupservice(req, (response) => {
@@ -118,14 +112,6 @@ export class Signincontroller {
 
         })
     }
-
-    public updateuserid(req: Request, res: Response) {
-        signinservice.updateuserid(req, (response) => {
-                        new CustomLogger().showLogger('info', 'Enter into SigninController.ts: updateuserid');
-             res.status(200);
-             res.json(response);
-                        new CustomLogger().showLogger('info', 'Exit from SigninController.ts: updateuserid');
-            })}
     public deleteuser(req: Request, res: Response) {
         new CustomLogger().showLogger('info', 'Enter into Signincontrollers.ts: deleteuser');
         signinservice.deleteuserservice(req, (response) => {
@@ -146,9 +132,5 @@ export class Signincontroller {
 
         })
     }
-
-    //#@authfacebook@#
-
-    //#@authgithub@#
 
 }

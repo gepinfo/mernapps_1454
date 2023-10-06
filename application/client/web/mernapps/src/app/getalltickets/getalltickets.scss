@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+.gjs-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.gjs-cell {
+    min-height: 75px;
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+#template-iui6 {
+    min-height: auto;
+    height: 100%;
+}
+
+#template-it5s {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    height: 100%;
+}
+
+#template-iueb {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 600;
+    color: rgb(85, 76, 166);
+    font-size: 30px;
+}
+
+#template-iebh {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    height: 900px;
+}
+
+#template-ie3y {
+    flex-basis: 50%;
+    height: 100%;
+    display: flex;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: rgba(237, 209, 243, 0.59);
+    border-right-color: rgba(237, 209, 243, 0.59);
+    border-bottom-color: rgba(237, 209, 243, 0.59);
+    border-left-color: rgba(237, 209, 243, 0.59);
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    background-color: rgba(229, 70, 234, 0.53);
+}
+
+#template-inf5u {
+    color: black;
+    width: 100%;
+    justify-content: center;
+    align-self: center;
+}
+
+#template-imaj {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+#template-i9ig {
+    padding-top: 10px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-bottom: 10px;
+}
+
+#myGrid {
+    width: auto;
+    height: 50%;
+}
+
+@media (max-width: 768px) {
+    .gjs-row {
+        flex-wrap: wrap;
+    }
+}

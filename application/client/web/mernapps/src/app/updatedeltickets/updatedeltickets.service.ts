@@ -1,36 +1,29 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { SharedService } from '../../shared/shared.service';
+import axios from 'axios';
+import React from "react";
+import { Web } from '../../shared/shared.service';
 
-@Injectable({
-    providedIn: 'root'
-})
 
-export class UpdatedelticketsService {
-    constructor(
-        private sharedService: SharedService,
-        private http: HttpClient,
-    ) { }
 
-    GpDelete(ticketsId:any): Observable<any> {
+export class service extends React.Component { 
+
+   GpDelete=(ticketsId:any) => {
         let jwt_token = sessionStorage.getItem('JwtToken');
- 	 	return this.http.delete(this.sharedService.WEB_API + '/tickets/' + ticketsId + `?jwt_token=${jwt_token}`);
+ 	 	return axios.delete(Web()+ '/tickets/' + ticketsId + `?jwt_token=${jwt_token}`);
     }
-    GpUpdate(tickets:any): Observable<any> {
+   GpUpdate=(tickets:any) => {
         let jwt_token = sessionStorage.getItem('JwtToken');
- 	 	return this.http.put(this.sharedService.WEB_API + '/tickets' + `?jwt_token=${jwt_token}`, tickets);
+ 	 	return axios.put(Web() + '/tickets' + `?jwt_token=${jwt_token}`, tickets);
     }
-    GpGetEntityById(ticketsId:any): Observable<any> {
+   GpGetEntityById=(ticketsId:any) => {
         let jwt_token = sessionStorage.getItem('JwtToken');
- 	 	return this.http.get(this.sharedService.WEB_API + '/tickets/' + ticketsId + `?jwt_token=${jwt_token}`);
+ 	 	return axios.get(Web()+ '/tickets/' + ticketsId + `?jwt_token=${jwt_token}`);
     }
-    typesGpGetAllValues(): Observable<any> {
+   entitytypesGpGetAllValues= () => {
         let jwt_token = sessionStorage.getItem('JwtToken');
- 	 	return this.http.get(this.sharedService.WEB_API + '/types' + `?jwt_token=${jwt_token}`);
+ 	 	return axios.get(Web() + '/types' + `?jwt_token=${jwt_token}`);
     }
-    severityGpGetAllValues(): Observable<any> {
+   entityseverityGpGetAllValues= () => {
         let jwt_token = sessionStorage.getItem('JwtToken');
- 	 	return this.http.get(this.sharedService.WEB_API + '/severity' + `?jwt_token=${jwt_token}`);
+ 	 	return axios.get(Web() + '/severity' + `?jwt_token=${jwt_token}`);
     }
 }

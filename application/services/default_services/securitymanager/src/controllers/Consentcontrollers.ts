@@ -5,11 +5,6 @@ import { CustomLogger } from '../config/Logger'
 let consentservice = new Consentservice;
 
 export class Consentcontroller {
-    private callConstructor:string;
-    constructor() { 
-        this.callConstructor = "callConstructor";
-    }
-    
     public consent(req: Request, res: Response) {
         new CustomLogger().showLogger('info', 'Enter into Consentcontrollers.ts: Consentcontroller');
 

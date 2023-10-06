@@ -8,11 +8,6 @@ const signinmodel = mongoose.model('User', UserSchema);
 const rolemodel = mongoose.model('role', Roleschema)
 
 export class ConsentDao {
-    private callConstructor:string;
-    constructor() { 
-        this.callConstructor = "callConstructor";
-    }
-    
     public consentdao(consentdata, callback) {
         new CustomLogger().showLogger('info', 'Enter into ConsentDao.ts : consentdao');
 
@@ -20,25 +15,24 @@ export class ConsentDao {
             signinmodel.findById(consentdata.id).populate({
                 path: 'role', model: rolemodel
             }).then((result) => {
-                let payload = {
+                var payload = {
                     username: result.username,
                     firstname: result.firstname,
                     lastname: result.lastname,
                     email: result.email,
                     id: result._id,
-                    role: result.role['role']
+                    role: result.role.role
                 }
-                let token = jwt.sign(payload, 'geppettosecret', {
+                var token = jwt.sign(payload, 'geppettosecret', {
                     expiresIn: 86400
                 });
-                signinmodel.findByIdAndUpdate(consentdata.id, { $set: { Idtoken: token } }).then((response) => {
-                    try {
-                        response.Idtoken = token;
-                        new CustomLogger().showLogger('info', 'Exit from ConsentDao.ts : consentdao');
-                        callback(response);
-                    } catch (error) {
-                        callback(error);
+                signinmodel.findByIdAndUpdate(consentdata.id, { $set: { Idtoken: token } }, function (err, response) {
+                    if (err) {
+                        callback(err);
                     }
+                    response.Idtoken = token;
+                    new CustomLogger().showLogger('info', 'Exit from ConsentDao.ts : consentdao');
+                    callback(response);
                 });
             })
         }

@@ -227,7 +227,7 @@ services:
     image: systementry-1454
     container_name: systementry-1454
     ports: 
-      - 8023:8023
+      - 8027:8027
     env_file: .env
     depends_on:
       - mongo
@@ -246,7 +246,7 @@ services:
     image: tickets-1454
     container_name: tickets-1454
     ports: 
-      - 8024:8024
+      - 8028:8028
     env_file: .env
     depends_on:
       - mongo
@@ -265,7 +265,7 @@ services:
     image: types-1454
     container_name: types-1454
     ports: 
-      - 8025:8025
+      - 8029:8029
     env_file: .env
     depends_on:
       - mongo
@@ -284,7 +284,7 @@ services:
     image: severity-1454
     container_name: severity-1454
     ports: 
-      - 8026:8026
+      - 8030:8030
     env_file: .env
     depends_on:
       - mongo

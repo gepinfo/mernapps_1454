@@ -38,7 +38,7 @@ export class WinstonLogger {
             ],
             statusLevels: false,
             level: function (req, res) {
-                let level = '';
+                var level = '';
                 if (res.statusCode >= 100) {
                     level = 'info';
                 }
@@ -74,7 +74,7 @@ export class WinstonLogger {
             ],
             statusLevels: false, // default value
             level: function (req, res) {
-                let level = '';
+                var level = '';
                 if (res.statusCode >= 100) {
                     level = 'info';
                 }

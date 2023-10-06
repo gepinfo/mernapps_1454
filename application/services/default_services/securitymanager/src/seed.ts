@@ -9,9 +9,9 @@ export class SeedService {
     constructor() { }
 
     public create(): void {
-        roletypes.forEach(roles => {
+        roletypes.map(roles => {
             roletypemodel.findOneAndUpdate({ role: roles['role'] },
-                roles, { new: true }).then((data) => {
+                roles, { new: true }, (err, data) => {
                     if (data === null) {
                         let roletype = new roletypemodel(roles);
                         roletype.save();

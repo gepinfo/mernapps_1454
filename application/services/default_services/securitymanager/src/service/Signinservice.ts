@@ -1,19 +1,13 @@
-import { Request } from 'express';
+import { Request, response } from 'express';
 import { SigninDao } from '../daos/SigninDao';
-import { CustomLogger } from '../config/Logger';
-import { IUser } from '../interface/Isecuritymanager';
+import { CustomLogger } from '../config/Logger'
 
 let signindao = new SigninDao();
 export class Signinservice {
 
-    private callConstructor:string;
-    constructor() { 
-        this.callConstructor = "callConstructor";
-    }
-    
     public signupservice(req: Request, callback) {
         new CustomLogger().showLogger('info', 'Enter into Signinservice.ts: signupservice');
-        const users:IUser = req.body;
+        const users = req.body;
         signindao.signindao(users, (response) => {
             new CustomLogger().showLogger('info', 'Exit from Signinservice.ts: signupservice');
             callback(response);
@@ -23,7 +17,7 @@ export class Signinservice {
 
     public loginservice(req: Request, callback) {
         new CustomLogger().showLogger('info', 'Enter into loginservice');
-        const logindetails:IUser = req.body;
+        const logindetails = req.body;
         signindao.logindao(logindetails, (response) => {
             new CustomLogger().showLogger('info', 'Exit from Signinservice.ts: loginservice');
             callback(response)
@@ -109,7 +103,7 @@ export class Signinservice {
     public updateuserservice(req: Request, callback) {
         new CustomLogger().showLogger('info', 'Enter into Signinservice.ts: updateuserservice');
 
-        const userdetails:IUser = req.body;
+        const userdetails = req.body;
 
         signindao.updateuserdao(userdetails, (response) => {
             new CustomLogger().showLogger('info', 'Exit from Signinservice.ts: updateuserservice');
@@ -118,19 +112,10 @@ export class Signinservice {
         })
     }
 
-    public  updateuserid(req: Request, callback){
-        new CustomLogger().showLogger('info', 'Enter into SigninService.ts: updateuserid')
-        let SigninData = req.body;    
-        signindao.updateuserid(SigninData,(response)=>{
-                 new CustomLogger().showLogger('info', 'Exit from SigninService.ts: updateuserid')
-             callback(response);
-             });
-        }
-
     public updateUserservice(req: Request, callback) {
         new CustomLogger().showLogger('info', 'Enter into Signinservice.ts: updateuserservice');
 
-        const userdetails:IUser = req.body;
+        const userdetails = req.body;
 
         signindao.updateUserdao(userdetails, (response) => {
             new CustomLogger().showLogger('info', 'Exit from Signinservice.ts: updateuserservice');

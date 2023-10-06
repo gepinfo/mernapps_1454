@@ -1,4 +1,4 @@
-FROM node:20.2-alpine
+FROM node:14.11.0-alpine
 COPY . /securitymanager
 WORKDIR /securitymanager
 RUN npm i -g ts-node

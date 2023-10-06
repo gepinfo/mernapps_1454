@@ -21,7 +21,7 @@ this.router.get('/tickets/:id', this.GpGetEntityById);
 this.router.get('/tickets', this.GpGetAllValues);
 this.router.post('/tickets', this.GpCreate);
 this.router.get('/tickets/userid/created_by', this.GpGetNounCreatedBy);
-        this.router.get('/tickets/get/searchrelationship', this.GpSearchRelationship);
+        //#@gepdelimeterone@#
         //#@ssofacebookapiroute@#
         //#@ssogithubapiroute@#
         //#@gepbankingapiroute@#
@@ -108,35 +108,7 @@ public GpGetNounCreatedBy(req: Request, res: Response) {
         });
     }
 
-    public GpSearchRelationship(req: Request, res: Response) 
-                                            {
-                                                let response1:any;
-                                                let response2:any;
-                                                let finalresponse:any;
-                                                let relURL = '/severity/get/search?name=';                                                
-                                                new CustomLogger().showLogger('info', 'Enter into ticketsController.ts: GpSearch');
-                                                new ApiAdapter().get(Constant.TICKETSURL + `${req.url}`).then((res: any) => res.response.json()).then(result => 
-                                                {
-                                                  response1 = result;
-                                                  new CustomLogger().showLogger('info', 'Exit from ticketsController.ts: GpSearch');
-                                                  new CustomLogger().showLogger('info', 'Enter into severityController.ts: GpSearch');
-                                                  new ApiAdapter().get(`${Constant.SEVERITYURL}`+`${relURL}`+`${response1[0].severity}`).then((res: any) => res.response.json()).then(result => 
-                                                  {
-                                                    response2 = result;
-                                                    finalresponse = 
-                                                    {
-                                                      "response1" : response1,
-                                                      "response2" : response2
-                                                    }
-                                                    new CustomLogger().showLogger('info', 'Exit from severityController.ts: GpSearch');
-                                                    req.baseUrl === '/mobile' ? res.send(finalresponse) :
-                                                    req.baseUrl === '/web' ? res.send(finalresponse) : res.send(null);
-                                                  });
-                                                }).catch(err => 
-                                                   {
-                                                    res.send(err);
-                                                   });
-                                            }
+    //#@gepdelimeter@#
 
     //#@apifacebooklogin@#
 

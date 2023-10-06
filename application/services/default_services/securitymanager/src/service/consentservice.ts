@@ -5,11 +5,6 @@ import { CustomLogger } from '../config/Logger'
 let consentdao = new ConsentDao();
 
 export class Consentservice {
-    private callConstructor:string;
-    constructor() { 
-        this.callConstructor = "callConstructor";
-    }
-    
     public consentservice(req: Request, callback) {
         new CustomLogger().showLogger('info', 'Enter into consentservice.ts: consentservice');
         const consentbody = req.body;

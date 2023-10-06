@@ -1,18 +1,11 @@
-import { Response } from "express";
+import { Request, Response, NextFunction } from 'express';
 import { Signincontroller } from '../controllers/Signincontrollers';
 import { Consentcontroller } from '../controllers/Consentcontrollers';
-const passport = require('passport');
-//#@facebookimport@#
-//#@githubimport@#
 
 export class Routes {
-    private callConstructor:string;
-    constructor() { 
-        this.callConstructor = "callConstructor";
-    }
-    
+
     public signincontroller: Signincontroller = new Signincontroller()
-    // public realmsignincontroller: RealmSignincontroller = new RealmSignincontroller()
+
     public consentcontroller: Consentcontroller = new Consentcontroller()
 
 
@@ -29,12 +22,8 @@ export class Routes {
         app.route('/saveroles').post(this.signincontroller.saveroles);
         app.route('/deleteroles/:id').delete(this.signincontroller.deleteroles);
         app.route('/updateuser').put(this.signincontroller.updateuser);
-        app.route('/updateuserid').put(this.signincontroller.updateuserid);
         app.route('/updateuserimg').put(this.signincontroller.updateUser);
         app.route('/deleteUser/:id').delete(this.signincontroller.deleteuser);
-
-        //#@facebookroute@# 
-
-        //#@githubroute@#
+    
     }
 }

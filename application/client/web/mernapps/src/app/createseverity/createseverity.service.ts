@@ -1,16 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { SharedService } from '../../shared/shared.service';
+import axios from 'axios';
+import React from "react";
+import { Web } from '../../shared/shared.service';
 
-@Injectable({
-    providedIn: 'root'
-})
 
-export class CreateseverityService {
-    constructor(
-        private sharedService: SharedService,
-        private http: HttpClient,
-    ) { }
+
+export class service extends React.Component { 
 
 }

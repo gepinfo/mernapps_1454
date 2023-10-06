@@ -13,7 +13,7 @@ info:
       name: Apache 2.0
       url: https://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-   - url: http://localhost:8026
+   - url: http://localhost:8030
      description: severity
 tags:
 - name: severity
