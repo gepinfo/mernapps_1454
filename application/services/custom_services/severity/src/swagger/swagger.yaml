@@ -1,0 +1,169 @@
+---
+openapi: 3.0.0
+info:
+   version: 1.3.0
+   title: mernapps open api specification
+   description: severity API
+   termsOfService: http://api_url/terms/
+   contact:
+      name: ContactName
+      email: hello@wolox.co
+      url: https://www.wolox.com.ar/
+   license:
+      name: Apache 2.0
+      url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+   - url: http://localhost:8026
+     description: severity
+tags:
+- name: severity
+paths:
+   "/severity/{id}":
+      delete:
+         tags:
+         -  severity
+         description: GpDelete
+         parameters:
+         -  in: "path"
+            description: GpDelete
+            name: id
+            required: true
+            schema:
+               type: "string"
+         responses:
+            200:
+               description: Success
+            400:
+               description: Bad Request
+            404:
+               description: Not Found
+            500:
+               description: Internal Server Error
+      get:
+         tags:
+         -  severity
+         description: GpGetEntityById
+         parameters:
+         -  in: "path"
+            description: GpGetEntityById
+            name: id
+            required: true
+            schema:
+               type: "string"
+         responses:
+            200:
+               description: Success
+            400:
+               description: Bad Request
+            404:
+               description: Not Found
+            500:
+               description: Internal Server Error
+   "/severity/get/search":
+      get:
+         tags:
+         -  severity
+         description: GpSearch
+         responses:
+            200:
+               description: Success
+            400:
+               description: Bad Request
+            404:
+               description: Not Found
+            500:
+               description: Internal Server Error
+   "/severity/get/update":
+      put:
+         tags:
+         -  severity
+         description: GpSearchForUpdate
+         requestBody:
+            content:
+               application/json:
+                  schema:
+                     $ref: "#/components/schemas/severity"
+         responses:
+            200:
+               description: Success
+            400:
+               description: Bad Request
+            404:
+               description: Not Found
+            500:
+               description: Internal Server Error
+   "/severity":
+      put:
+         tags:
+         -  severity
+         description: GpUpdate
+         requestBody:
+            content:
+               application/json:
+                  schema:
+                     $ref: "#/components/schemas/severity"
+         responses:
+            200:
+               description: Success
+            400:
+               description: Bad Request
+            404:
+               description: Not Found
+            500:
+               description: Internal Server Error
+      get:
+         tags:
+         -  severity
+         description: GpGetAllValues
+         responses:
+            200:
+               description: Success
+            400:
+               description: Bad Request
+            404:
+               description: Not Found
+            500:
+               description: Internal Server Error
+      post:
+         tags:
+         -  severity
+         description: GpCreate
+         requestBody:
+            content:
+               application/json:
+                  schema:
+                     $ref: "#/components/schemas/severity"
+         responses:
+            200:
+               description: Success
+            400:
+               description: Bad Request
+            404:
+               description: Not Found
+            500:
+               description: Internal Server Error
+   "/severity/userid/created_by":
+      get:
+         tags:
+         -  severity
+         description: GpGetNounCreatedBy
+         responses:
+            200:
+               description: Success
+            400:
+               description: Bad Request
+            404:
+               description: Not Found
+            500:
+               description: Internal Server Error
+components:
+   schemas:
+      severity:
+         type: object
+         properties:
+            name:
+               type: "string"
+               description: Description
+            description:
+               type: "string"
+               description: Description

@@ -1,0 +1,21 @@
+<h2 class="screen-align">Getalltickets</h2>
+<div id="template-iebh" class="gjs-row">
+    <div id="template-ie3y" class="gjs-cell">
+        <img id="template-inf5u" src="https://grapesjs-images.s3.amazonaws.com/grapesjsimages/Group%2053441.png"
+        class="" />
+    </div>
+    <div id="template-imaj" class="gjs-cell">
+        <div id="template-it5s" class="gjs-row">
+            <div id="template-iui6" class="gjs-cell">
+                <div id="template-iueb" class="">List of Ticket Status</div>
+                <div name="grid_template-i9ig" id="template-i9ig">
+                    <ag-grid-angular #agGrid style="width: 100%; height: 100%;" id="myGrid"
+                    class="ag-theme-balham" [columnDefs]="columnDefs" [pagination]="true" [paginationPageSize]="paginationPageSize"
+                    [defaultColDef]="defaultColDef" [rowData]="rowData" [rowSelection]="rowSelection"
+                    (gridReady)="onGridReady($event)" domLayout='autoHeight' (selectionChanged)="onSelectionChanged($event)"></ag-grid-angular>
+                </div>
+                <div id="myGrid" class="ag-theme-alpine "></div>
+            </div>
+        </div>
+    </div>
+</div>

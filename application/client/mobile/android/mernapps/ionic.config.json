@@ -1,0 +1,7 @@
+{
+  "name": "mernapps",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
